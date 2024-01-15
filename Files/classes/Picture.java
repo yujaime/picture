@@ -466,6 +466,26 @@ public class Picture extends SimplePicture
   public void copyGull()
   {
     //add your code here
+    Pixel[][] actual = this.getPixels2D();
+    //int height = getHeight();
+    int width = getWidth();
+    //int half = (width/2);
+    for(int r = 228; r < 328;r++ )
+    {
+      for( int c = 234; c < 351; c++ )
+      {
+        
+        int red = actual[r][c].getRed();
+        int blue = actual[r][c].getBlue();
+        int green = actual[r][c].getGreen();
+
+       
+        actual[r][width-c+60].setRed(red);
+        actual[r][width-c+60].setBlue(blue);
+        actual[r][width-c+60].setGreen(green);
+        
+      }
+    }
   }
      
   
