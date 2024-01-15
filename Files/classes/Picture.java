@@ -413,7 +413,7 @@ public class Picture extends SimplePicture
   {
     //add your code here
     Pixel[][] actual = this.getPixels2D();
-    int height = getHeight();
+    //int height = getHeight();
     int width = getWidth();
     int half = (width/2);
     for(int r = 0; r < 100;r++ )
