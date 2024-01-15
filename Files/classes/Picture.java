@@ -438,6 +438,28 @@ public class Picture extends SimplePicture
   public void mirrorArms()
   {
     //add your code here
+    Pixel[][] actual = this.getPixels2D();
+    //int height = getHeight();
+    //int width = getWidth();
+    //int half = (height/2);
+    // Pixel[][] target = 
+    for(int r = 157; r < 200;r++ )
+    {
+      for( int c = 99; c < 299; c++ )
+      {
+        
+        int red = actual[r][c].getRed();
+        int blue = actual[r][c].getBlue();
+        int green = actual[r][c].getGreen();
+
+        if(red < 200 && red > 36 && blue < 100 && green < 100)
+        {
+          actual[180+(200-r)][c].setRed(red);
+          actual[180+(200-r)][c].setBlue(blue);
+          actual[180+(200-r)][c].setGreen(green);
+        }
+      }
+    }
   }
   
   /** Method to copy the gull in the picture to another location of the picture */
