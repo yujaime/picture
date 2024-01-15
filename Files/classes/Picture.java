@@ -401,11 +401,29 @@ public class Picture extends SimplePicture
   }
   
   /** Method to mirror around a diagonal line from bottom left to top right */
-  public void mirrorDiagonal()
-  {
-    //add your code here
-    
-  }
+  public void mirrorDiagonal() {
+    Pixel[][] pixels = getPixels2D();
+    int height = getHeight();
+    int width = getWidth();
+    int counter = width;
+    int limit = Math.min(height,width);
+    for(int r = limit-1; r > -1; r-- )
+    {
+      for( int c = 0; c < limit; c++ )
+      {
+        int red = pixels[r][c].getRed();
+        int blue = pixels[r][c].getBlue();
+        int green = pixels[r][c].getGreen();
+
+        pixels[c][r].setRed(red);
+        pixels[c][r].setBlue(blue);
+        pixels[c][r].setGreen(green);
+      }
+      counter--;
+    }
+}
+
+
     
   /** Method to mirror just part of a picture of a temple to fix the broken part of the temple */
   public void mirrorTemple()

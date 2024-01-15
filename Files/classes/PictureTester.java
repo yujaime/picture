@@ -22,8 +22,8 @@ public class PictureTester
     //testEnhanceFish();
     //testEdgeDetection();
     
-    testMirrorVertical();
-    //testMirrorDiagonal();
+    //testMirrorVertical();
+    testMirrorDiagonal();
     //testMirrorTemple();
     //testMirrorArms();
     //testCopyGull();    
