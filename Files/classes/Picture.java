@@ -405,7 +405,7 @@ public class Picture extends SimplePicture
     Pixel[][] pixels = getPixels2D();
     int height = getHeight();
     int width = getWidth();
-    int counter = width;
+    //int counter = width;
     int limit = Math.min(height,width);
     for(int r = limit-1; r > -1; r-- )
     {
