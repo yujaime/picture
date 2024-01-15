@@ -357,51 +357,34 @@ public class Picture extends SimplePicture
   
   
   /** Method to mirror the picture around a vertical line in the center of the picture from left to right */
-  public void mirrorVertical()
-  {
-    //add your code here
-    //Pixel[][] copy = getPixels2D();
-    Pixel[][] actual = this.getPixels2D();
-    int height = getHeight();
-    int width = getWidth();
-    int half = (width/2);
-    // System.out.println(getWidth());
-    // System.out.println(getHeight());
-    for(int r = 0; r < height;r++ )
-    {
-      for( int c = 0; c < half; c++ )
-      {
-        System.out.println("height: " + r + "; width: " + c);
-        actual[r][width-c-1] = actual[r][c];
-       
-        // actual[r][width-c-1].setRed(red);
-        // actual[r][width-c-1].setBlue(blue);
-        // actual[r][width-c-1].setGreen(green);
-        
-        
-        actual[r][c].setBlue(0);
-        actual[r][c].setRed(0);
-        actual[r][c].setGreen(0);
+  public void mirrorVertical() {
+    Pixel[][] pixels = this.getPixels2D();
+    int height = pixels.length;
+    int width = pixels[0].length;
 
-         int red = actual[r][c].getRed();
-        int blue = actual[r][c].getBlue();
-        int green = actual[r][c].getGreen();
+    for (int row = 0; row < height; row++) {
+        for (int col = 0; col < width / 2; col++) {
+            Pixel leftPixel = pixels[row][col];
+            Pixel rightPixel = pixels[row][width - col - 1];
 
-        int reed = actual[r][c].getRed();
-        int b = actual[r][c].getBlue();
-        int g =actual[r][c].getGreen();
-        
-        System.out.println("original {red: " + red + "; blue: " + blue + "; green: " + green + "}");
-        System.out.println("altered {red: " + reed + "; blue: " + b + "; green: " + g + "}");
-      }
+            // Swap the pixels without overwriting the original values
+            rightPixel.setColor(leftPixel.getColor());
+        }
     }
-    
-  }
+}
   
   /** Method to mirror around a diagonal line from bottom left to top right */
   public void mirrorDiagonal()
   {
     //add your code here
+    Pixel[][] pixels = this.getPixels2D();
+    for( Pixel[] rowArray : pixels )
+    {
+      for( Pixel pixelObj : rowArray )
+      {
+        
+      }
+    }
     
   }
     
