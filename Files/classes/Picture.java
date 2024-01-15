@@ -371,28 +371,30 @@ public class Picture extends SimplePicture
     {
       for( int c = 0; c < half; c++ )
       {
-        System.out.println("height: " + r + "; width: " + c);
-        actual[r][width-c-1] = actual[r][c];
-       
-        // actual[r][width-c-1].setRed(red);
-        // actual[r][width-c-1].setBlue(blue);
-        // actual[r][width-c-1].setGreen(green);
-        
-        
-        actual[r][c].setBlue(0);
-        actual[r][c].setRed(0);
-        actual[r][c].setGreen(0);
+        //System.out.println("height: " + r + "; width: " + c);
+        // actual[r][width-c-1] = actual[r][c];
 
-         int red = actual[r][c].getRed();
+        int red = actual[r][c].getRed();
         int blue = actual[r][c].getBlue();
         int green = actual[r][c].getGreen();
 
-        int reed = actual[r][c].getRed();
-        int b = actual[r][c].getBlue();
-        int g =actual[r][c].getGreen();
+       
+        actual[r][width-c-1].setRed(red);
+        actual[r][width-c-1].setBlue(blue);
+        actual[r][width-c-1].setGreen(green);
         
-        System.out.println("original {red: " + red + "; blue: " + blue + "; green: " + green + "}");
-        System.out.println("altered {red: " + reed + "; blue: " + b + "; green: " + g + "}");
+        
+        // actual[r][c].setBlue(0);
+        // actual[r][c].setRed(0);
+        // actual[r][c].setGreen(0);
+
+   
+        // int reed = actual[r][c].getRed();
+        // int b = actual[r][c].getBlue();
+        // int g =actual[r][c].getGreen();
+        
+        // System.out.println("original {red: " + red + "; blue: " + blue + "; green: " + green + "}");
+        // System.out.println("altered {red: " + reed + "; blue: " + b + "; green: " + g + "}");
       }
     }
     
