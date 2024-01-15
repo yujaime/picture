@@ -360,20 +360,15 @@ public class Picture extends SimplePicture
   public void mirrorVertical()
   {
     //add your code here
-    //Pixel[][] copy = getPixels2D();
     Pixel[][] actual = this.getPixels2D();
     int height = getHeight();
     int width = getWidth();
     int half = (width/2);
-    // System.out.println(getWidth());
-    // System.out.println(getHeight());
     for(int r = 0; r < height;r++ )
     {
       for( int c = 0; c < half; c++ )
       {
-        //System.out.println("height: " + r + "; width: " + c);
-        // actual[r][width-c-1] = actual[r][c];
-
+        
         int red = actual[r][c].getRed();
         int blue = actual[r][c].getBlue();
         int green = actual[r][c].getGreen();
@@ -383,18 +378,6 @@ public class Picture extends SimplePicture
         actual[r][width-c-1].setBlue(blue);
         actual[r][width-c-1].setGreen(green);
         
-        
-        // actual[r][c].setBlue(0);
-        // actual[r][c].setRed(0);
-        // actual[r][c].setGreen(0);
-
-   
-        // int reed = actual[r][c].getRed();
-        // int b = actual[r][c].getBlue();
-        // int g =actual[r][c].getGreen();
-        
-        // System.out.println("original {red: " + red + "; blue: " + blue + "; green: " + green + "}");
-        // System.out.println("altered {red: " + reed + "; blue: " + b + "; green: " + g + "}");
       }
     }
     
@@ -429,6 +412,26 @@ public class Picture extends SimplePicture
   public void mirrorTemple()
   {
     //add your code here
+    Pixel[][] actual = this.getPixels2D();
+    int height = getHeight();
+    int width = getWidth();
+    int half = (width/2);
+    for(int r = 0; r < 100;r++ )
+    {
+      for( int c = 0; c < half; c++ )
+      {
+        
+        int red = actual[r][c].getRed();
+        int blue = actual[r][c].getBlue();
+        int green = actual[r][c].getGreen();
+
+      
+        actual[r][width-c-1].setRed(red);
+        actual[r][width-c-1].setBlue(blue);
+        actual[r][width-c-1].setGreen(green);
+        
+      }
+    }
   }
   
   /** Method to mirror just part of a picture of a snowman, so that it will have four arms instead of two */
