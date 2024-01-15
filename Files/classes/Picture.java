@@ -495,6 +495,33 @@ public class Picture extends SimplePicture
   public void chromakey(Picture newBack)
   {
     //add your code here
+    //DigitalPicture x = new Picture(1,1);
+    Pixel[][] original = this.getPixels2D();
+    Pixel[][] bg = newBack.getPixels2D();
+    //Pixel blue = new Pixel(x,1,1);
+    // Color colBlue = new Color(11,39,76);
+
+    for( int r = 0; r < original.length; r++ )
+    {
+      for( int c = 0; c < original[0].length; c++ )
+      {
+
+        int red = original[r][c].getRed();
+        int blue = original[r][c].getBlue();
+        int green = original[r][c].getGreen();
+
+        // origColor = original.getColor();
+        if( red < 35 && blue < 90 && blue > 4 && green > 5 && green < 55 )
+        {
+          Color replace = bg[r][c].getColor();
+          original[r][c].setColor(replace);
+        }
+        
+      }
+    }
+  
+
+
   }
   
   /** Method to decode a message hidden in the red value of the current picture */
