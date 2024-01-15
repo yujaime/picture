@@ -419,7 +419,7 @@ public class Picture extends SimplePicture
         pixels[c][r].setBlue(blue);
         pixels[c][r].setGreen(green);
       }
-      counter--;
+      //counter--;
     }
 }
 
