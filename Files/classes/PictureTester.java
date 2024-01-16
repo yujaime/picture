@@ -28,8 +28,8 @@ public class PictureTester
     //testMirrorArms();
     //testCopyGull();    
     
-    testChromakey();
-    //testDecode();
+    //testChromakey();
+    testDecode();
     //testEncodeGreen();
 
     //testCustomized();

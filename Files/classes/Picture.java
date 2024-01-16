@@ -516,11 +516,9 @@ public class Picture extends SimplePicture
           Color replace = bg[r][c].getColor();
           original[r][c].setColor(replace);
         }
-        
+
       }
     }
-  
-
 
   }
   
@@ -528,6 +526,24 @@ public class Picture extends SimplePicture
   public void decode()
   {
     //add your code here
+    Pixel[][] pixels = getPixels2D();
+    Color black = new Color(0,0,0);
+    Color white = new Color(255,255,255);
+    for( int r = 0; r < getHeight(); r++ )
+    {
+      for( int c = 0; c < getWidth(); c++ )
+      {
+        int red = pixels[r][c].getRed();
+        if(red%2==0)
+        {
+          pixels[r][c].setColor(black);
+        }
+        else
+        {
+          pixels[r][c].setColor(white);
+        }
+      }
+    }
   }
   
   /** Hide a black and white message in the current picture by changing the green to even and then setting it to odd if the message pixel is black 
