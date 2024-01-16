@@ -581,30 +581,133 @@ public class Picture extends SimplePicture
   /** Your own customized method*/
   public void customized()
   {
-    //add your code here
-    Color white = new Color(255,255,255);
-    Color black = new Color(0,0,0);
+    int randomColor = 0;
+    int count = 500;
+    Picture read = new  Picture(getFileName());
+    Pixel[][] pixels = read.getPixels2D();
+    Pixel[][] actual = getPixels2D();
+    int width = read.getWidth();
+    int height = read.getHeight();
 
-    Pixel topPixel = null;
-    Pixel lowerPixel = null;
-      
-    double topIntensity;
-    double lowerIntensity;
+    Color red = new Color(238, 75, 43);
+    Color orange = new Color(239,190,125);
+    Color yellow = new Color(233,236,107);
+    Color blue = new Color(0, 150, 255);
+    Color pink = new Color( 233,205,208 );
+    Color purple = new Color(177,162,202);
+    Color[] random = {red, blue};
+    
+    for (int r = 0; r < height; r++ )
+    {
+      for (int c = 0; c < width; c++ )
+      {
 
-    double threshold = 10;
-    for(int y = 0; y < this.getHeight()-1; y++){
-      for(int x = 0; x < this.getWidth(); x++){
+        int x = pixels[r][c].getX();
+        int y = pixels[r][c].getY();
+        //System.out.println( "(" + x + "," + y + ")[" + r + "," + c + "]" );
 
-        topPixel = this.getPixel(x,y);
-        lowerPixel = this.getPixel(x,y+1);
+        boolean leftEdge = false;
+        boolean rightEdge = false;
+        boolean topEdge = false;
+        boolean bottomEdge = false;
 
-        topIntensity =  (topPixel.getRed() + topPixel.getGreen() + topPixel.getBlue()) / 3;
-        lowerIntensity =  (lowerPixel.getRed() + lowerPixel.getGreen() + lowerPixel.getBlue()) / 3;
 
-        if(Math.abs(topIntensity - lowerIntensity) < threshold)
-          topPixel.setColor(white);
+        if( x == 0)
+        {
+          leftEdge = true;
+          //rightEdge = false;
+        }
+        if( x == width-1 )
+        {
+          rightEdge = true;
+          //leftEdge = false;
+        }
+        if( y == 0 )
+        {
+          bottomEdge = true;
+          topEdge = false;
+        }
+        if( y == height-1 )
+        {
+          topEdge = true;
+          bottomEdge = false;
+        }
+        Color topLeft = pixels[r][c].getColor();
+        Color topRight = pixels[r][c].getColor();
+        Color topMid = pixels[r][c].getColor();
+        Color left = pixels[r][c].getColor();
+        Color right = pixels[r][c].getColor();
+        Color botMid = pixels[r][c].getColor();
+        Color botLeft = pixels[r][c].getColor();
+        Color botRight = pixels[r][c].getColor();
+
+        if( !leftEdge )
+        {
+          //topLeft = read.getPixel(x-1, y+1).getColor();
+          left = read.getPixel(x-1,y).getColor();
+          //botLeft = read.getPixel(x-1,y-1).getColor();
+          if( !topEdge )
+          {
+            topLeft = read.getPixel(x-1,y+1).getColor();
+          }
+          if( !bottomEdge )
+          {
+            botLeft = read.getPixel(x-1,y-1).getColor();
+          }
+        }
+        if( !rightEdge )
+        {
+          //topRight = read.getPixel(x+1, y+1).getColor();
+          right = read.getPixel(x+1, y).getColor();
+          //botRight = read.getPixel(x+1,y-1).getColor();
+          if( !topEdge )
+          {
+            topRight = read.getPixel(x+1,y+1).getColor();
+          }
+          if( !bottomEdge )
+          {
+            botRight = read.getPixel(x+1,y-1).getColor();
+          }
+        }
+        if( !topEdge )
+        {
+          topMid = read.getPixel(x,y+1).getColor();
+        }
+        if( !bottomEdge )
+        {
+          botMid = read.getPixel(x,y-1).getColor();
+        }
+
+        //yay i got all the colors
+
+        Color[] surrounding = {topLeft, topMid, topRight,left,right,botLeft,botMid,botRight};
+        int drastic = 0;
+        for( Color compare : surrounding )
+        {
+          double value = pixels[r][c].colorDistance(compare);
+          if( value > 15 )//for creepy use 5.
+          {
+            drastic++;
+          }
+        }
+        if( drastic > 4 )
+        {
+          actual[r][c].setColor(new Color(139, 0, 0));
+        }
         else
-          topPixel.setColor(black);
+        {
+          if( actual[r][c].getRed() - 100 != 255 )
+          {
+            actual[r][c].setRed(actual[r][c].getRed()+100);
+          }
+          else
+          {
+            actual[r][c].setRed(255);
+          }
+          // actual[r][c].setRed(0);
+          // actual[r][c].setBlue(0);
+          // actual[r][c].setGreen(0);
+        }
       }
     }
   }
