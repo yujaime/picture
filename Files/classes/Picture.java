@@ -579,7 +579,7 @@ public class Picture extends SimplePicture
   }
 
   /** Your own customized method*/
-  public void customized()
+  public void customized()//i name this method "The Pox."
   {
     int randomColor = 0;
     int count = 500;
@@ -596,7 +596,7 @@ public class Picture extends SimplePicture
     Color pink = new Color( 233,205,208 );
     Color purple = new Color(177,162,202);
     Color[] random = {red, blue};
-    
+    System.out.println("Please be patient.");
     for (int r = 0; r < height; r++ )
     {
       for (int c = 0; c < width; c++ )
@@ -610,7 +610,6 @@ public class Picture extends SimplePicture
         boolean rightEdge = false;
         boolean topEdge = false;
         boolean bottomEdge = false;
-
 
         if( x == 0)
         {
