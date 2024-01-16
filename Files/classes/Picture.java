@@ -581,22 +581,22 @@ public class Picture extends SimplePicture
   /** Your own customized method*/
   public void customized()//i name this method "The Pox."
   {
-    int randomColor = 0;
-    int count = 500;
+    // int randomColor = 0;
+    // int count = 500;
     Picture read = new  Picture(getFileName());
     Pixel[][] pixels = read.getPixels2D();
     Pixel[][] actual = getPixels2D();
     int width = read.getWidth();
     int height = read.getHeight();
 
-    Color red = new Color(238, 75, 43);
-    Color orange = new Color(239,190,125);
-    Color yellow = new Color(233,236,107);
-    Color blue = new Color(0, 150, 255);
-    Color pink = new Color( 233,205,208 );
-    Color purple = new Color(177,162,202);
-    Color[] random = {red, blue};
-    System.out.println("Please be patient.");
+    // Color red = new Color(238, 75, 43);
+    // // Color orange = new Color(239,190,125);
+    // // Color yellow = new Color(233,236,107);
+    // Color blue = new Color(0, 150, 255);
+    // Color pink = new Color( 233,205,208 );
+    // Color purple = new Color(177,162,202);
+    // Color[] random = {red, blue};
+    System.out.println("P L E A S E   B E   P A T I E N T .");
     for (int r = 0; r < height; r++ )
     {
       for (int c = 0; c < width; c++ )

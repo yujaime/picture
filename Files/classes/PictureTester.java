@@ -170,7 +170,7 @@ public class PictureTester
   /** Method to test customized*/
   public static void testCustomized()
   {
-    Picture beach = new Picture("alice.jpg");
+    Picture beach = new Picture("beach.jpg");
     beach.explore();
     beach.customized();
     beach.explore();
