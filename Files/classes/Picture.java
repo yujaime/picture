@@ -346,11 +346,6 @@ public class Picture extends SimplePicture
           actual[r][c].setBlue(225);
           actual[r][c].setGreen(225);
         }
-
-        // topEdge = false;
-        // bottomEdge = false;
-        // leftEdge = false;
-        // rightEdge = false;
       }
     }
   }
@@ -587,5 +582,30 @@ public class Picture extends SimplePicture
   public void customized()
   {
     //add your code here
+    Color white = new Color(255,255,255);
+    Color black = new Color(0,0,0);
+
+    Pixel topPixel = null;
+    Pixel lowerPixel = null;
+      
+    double topIntensity;
+    double lowerIntensity;
+
+    double threshold = 10;
+    for(int y = 0; y < this.getHeight()-1; y++){
+      for(int x = 0; x < this.getWidth(); x++){
+
+        topPixel = this.getPixel(x,y);
+        lowerPixel = this.getPixel(x,y+1);
+
+        topIntensity =  (topPixel.getRed() + topPixel.getGreen() + topPixel.getBlue()) / 3;
+        lowerIntensity =  (lowerPixel.getRed() + lowerPixel.getGreen() + lowerPixel.getBlue()) / 3;
+
+        if(Math.abs(topIntensity - lowerIntensity) < threshold)
+          topPixel.setColor(white);
+        else
+          topPixel.setColor(black);
+      }
+    }
   }
-} 
+}

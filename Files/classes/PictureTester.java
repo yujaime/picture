@@ -30,9 +30,9 @@ public class PictureTester
     
     //testChromakey();
     //testDecode();
-    testEncodeGreen();
+    //testEncodeGreen();
 
-    //testCustomized();
+    testCustomized();
   }
   
   /** Method to test zeroBlue */
