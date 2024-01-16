@@ -29,8 +29,8 @@ public class PictureTester
     //testCopyGull();    
     
     //testChromakey();
-    testDecode();
-    //testEncodeGreen();
+    //testDecode();
+    testEncodeGreen();
 
     //testCustomized();
   }

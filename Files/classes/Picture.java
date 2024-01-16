@@ -552,6 +552,35 @@ public class Picture extends SimplePicture
   public void encodeGreen(Picture messagePict)
   {
     //add your code here
+    Pixel[][] msg = messagePict.getPixels2D();
+    Pixel[][] pic = this.getPixels2D();
+    for( Pixel[] rowArray : msg )
+    {
+      for( Pixel pixelObj : rowArray )
+      {
+        int red = pixelObj.getRed();
+        int green = pixelObj.getGreen();
+        int blue = pixelObj.getBlue();
+        int x = pixelObj.getX();
+        int y = pixelObj.getY();
+        int picGreen = pic[y][x].getGreen();
+
+        if( red == 0 && green == 0 && blue == 0 ) //if black
+        {
+          if( picGreen%2 != 1)
+          {
+            pic[y][x].setGreen(picGreen+1);
+          }
+        }
+        else
+        {
+          if( picGreen%2 != 0 )
+          {
+            pic[y][x].setGreen(picGreen+1);
+          }
+        }
+      }
+    }
   }
 
   /** Your own customized method*/
